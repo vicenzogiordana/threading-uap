@@ -22,3 +22,4 @@ El nuevo objetivo es modificar el programa del punto anterior para que el inform
 
 ### *Aclaraciones*
 En el proyecto dentro de este repositorio, encontrarán todas las herramientas para poder resolver este enunciado.
+Para entregar el proyecto debe forkear este repositorio, resolver los enunciados y hacer una pull request con la solución para que se considere entregado. 
