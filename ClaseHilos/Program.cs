@@ -10,7 +10,13 @@
 //_3Barrier.Excecute();
 
 //4- Uso de Semaphore
-_4semaphore.Excecute();
+//_4semaphore.Excecute();
+
+//5- Uso de Mutex
+//_5Mutex.Excecute();
+
+//6- Uso de lock
+_6lock.Excecute();
 
 
 

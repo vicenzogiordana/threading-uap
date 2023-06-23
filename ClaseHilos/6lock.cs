@@ -1,18 +1,19 @@
 ﻿namespace ClaseHilos
 {
-    internal class _4semaphore
+    internal class _6lock //reference: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock
     {
-        static SemaphoreSlim semaphore = new SemaphoreSlim(2, 2);
+        static string[] names = { "Juan", "Pedro", "Maria", "Jose", "Ana", "Carlos", "Luis", "Luisa", "Rosa", "Raul" };
         static void HolaUAP()
         {
-            Console.WriteLine($"{Thread.CurrentThread.Name} en Fila");
-            semaphore.Wait();
-            Console.WriteLine($"{Thread.CurrentThread.Name} en atencion");
-            Thread.Sleep(3000);
-            Console.WriteLine($"{Thread.CurrentThread.Name} Saliendo");
-            semaphore.Release();
+            lock (names)
+            {
+                Console.WriteLine($"{Thread.CurrentThread.Name} Entrando");
+                Console.WriteLine($"Names count: {names.Length}");
+                Thread.Sleep(3000);
+                Console.WriteLine($"{Thread.CurrentThread.Name} Saliendo");
+            }
         }
-        internal static void Excecute()
+        internal static void Excecute ()
         {
             Thread task1 = new Thread(HolaUAP);
             task1.Name = "Hilo 1";
@@ -31,6 +32,5 @@
 
             Console.ReadLine();
         }
-
     }
 }

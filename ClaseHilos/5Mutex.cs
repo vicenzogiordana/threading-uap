@@ -1,16 +1,22 @@
-﻿namespace ClaseHilos
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClaseHilos
 {
-    internal class _4semaphore
+    internal class _5Mutex
     {
-        static SemaphoreSlim semaphore = new SemaphoreSlim(2, 2);
+        static Mutex mutex = new Mutex();
         static void HolaUAP()
         {
             Console.WriteLine($"{Thread.CurrentThread.Name} en Fila");
-            semaphore.Wait();
+            mutex.WaitOne();
             Console.WriteLine($"{Thread.CurrentThread.Name} en atencion");
             Thread.Sleep(3000);
             Console.WriteLine($"{Thread.CurrentThread.Name} Saliendo");
-            semaphore.Release();
+            mutex.ReleaseMutex();
         }
         internal static void Excecute()
         {
@@ -31,6 +37,5 @@
 
             Console.ReadLine();
         }
-
     }
 }
